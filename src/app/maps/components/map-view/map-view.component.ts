@@ -21,7 +21,7 @@ export class MapViewComponent implements AfterViewInit{
       container: this.mapDivElement.nativeElement,
       style: 'mapbox://styles/mapbox/light-v10', // style URL
       center: this.placesService.useLocation,
-      zoom: 14,
+      zoom: 10,
       });
 
 
