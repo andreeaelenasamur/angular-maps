@@ -38,7 +38,11 @@ export class PlacesService {
   }
 
   getPlacesByQuery( query: string = '' ) {
-    // todo: evaular cuando el query es nulo
+    if ( query.length === 0 ) {
+      this.places = [];
+      this.isLoadingPlaces = false;
+      return;
+    }
 
     if ( !this.useLocation ) throw Error('No hay userLocation')
 
@@ -50,8 +54,6 @@ export class PlacesService {
       }
     })
       .subscribe( resp => {
-        console.log(resp.features)
-
         this.isLoadingPlaces = false;
         this.places = resp.features;
       });
